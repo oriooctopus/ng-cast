@@ -1,9 +1,10 @@
 <div class="video-player">
   <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="{{ctrl.path(ctrl.video.id.videoId)}}" ng-hide="ctrl.showVideo" allowFullScreen></iframe>
+    <iframe class="embed-responsive-item" ng-src="{{ctrl.path(ctrl.video.id.videoId)}}" ng-if="ctrl.video.snippet.title" allowFullScreen></iframe>
   </div>
   <div class="video-player-details">
     <h3>{{ctrl.video.snippet.title}}</h3>
+    <h3 ng-if="!ctrl.video.snippet.title">Please wait</h3>
     <div>{{ctrl.video.snippet.description}}</div>
   </div>
 </div>
