@@ -3,8 +3,8 @@ angular.module('video-player')
   this.search = function(str, callback) {
 	  $http({
 	  	method: 'GET',
-	  	url: 'https://www.googleapis.com/youtube/v3/search',
-	  	params: {maxResults: 5, query: str, key: window.YOUTUBE_API_KEY, type: 'video', videoEmbeddable: true, part: 'snippet'}
+	  	url: 'https://www.googleapis.com/youtube/v3/search/',
+	  	params: {maxResults: 5, q: str, key: window.YOUTUBE_API_KEY, type: 'video', videoEmbeddable: true, part: 'snippet'}
 	  }).then(function successCallback(data) {
 	  	console.log('success');
 	  	callback(data.data.items);

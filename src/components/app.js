@@ -7,16 +7,22 @@ angular.module('video-player')
     resrict: 'E',
     controllerAs: 'ctrl',
     bindToController: true,
-    controller: function(youTube) {
+    controller: function(youTube, $timeout) {
       this.selectVideo = (video) => {
-        console.log(this, this.currentVideo);
         this.currentVideo = video;
       };
       this.searchResults = (data) => {
         this.videos = data;
         this.currentVideo = data[0];
       };
+
+      this.result = () => {
+        youTube.search(this.searchValue, this.searchResults);
+      }
       
+
+
+      this.searchValue = '';
       this.videos = window.exampleVideoData;
       this.currentVideo = {};
 
